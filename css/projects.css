@@ -1,0 +1,119 @@
+/* ============================================================
+   PROJECTS — Cards grid
+   ============================================================ */
+#projects { padding: var(--section-pad) 0; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.8rem;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s var(--ease-bounce);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 245, 255, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 245, 255, 0.14);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+.project-icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 245, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.project-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #ffd700;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+}
+
+.project-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.project-desc {
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+.project-lang i { font-size: 1rem; }
+
+/* Language colors via devicon colored class */
+.lang-dot { width: 10px; height: 10px; border-radius: 50%; }
+.lang-js   { background: #f7df1e; }
+.lang-php  { background: #4f5d95; }
+.lang-py   { background: #3572a5; }
+.lang-ts   { background: #3178c6; }
+.lang-go   { background: #00add8; }
+.lang-cs   { background: #239120; }
+
+.project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.3s;
+}
+.project-link:hover { gap: 0.6rem; }
+
+.projects-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media (max-width: 520px) {
+    .projects-grid { grid-template-columns: 1fr; }
+}

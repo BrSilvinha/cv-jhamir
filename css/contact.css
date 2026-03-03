@@ -1,0 +1,90 @@
+/* ============================================================
+   CONTACT — Social cards, email, footer
+   ============================================================ */
+#contact { padding: var(--section-pad) 0; }
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.contact-intro {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ── Social Cards Grid ─────────────────────────────────── */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.social-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.4s var(--ease-bounce);
+    position: relative;
+    overflow: hidden;
+}
+.social-card:hover { transform: translateY(-10px) scale(1.03); }
+
+.social-card.github:hover    { border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 50px rgba(255,255,255,0.08); }
+.social-card.instagram:hover { border-color: rgba(225,48,108,0.5);  box-shadow: 0 20px 50px rgba(225,48,108,0.2); }
+.social-card.facebook:hover  { border-color: rgba(24,119,242,0.5);  box-shadow: 0 20px 50px rgba(24,119,242,0.2); }
+.social-card.whatsapp:hover  { border-color: rgba(37,211,102,0.5);  box-shadow: 0 20px 50px rgba(37,211,102,0.2); }
+.social-card.email:hover     { border-color: rgba(255,107,53,0.5);  box-shadow: 0 20px 50px rgba(255,107,53,0.2); }
+
+.social-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+.social-card.github    .social-icon { color: #fff; }
+.social-card.instagram .social-icon { color: #e1306c; }
+.social-card.facebook  .social-icon { color: #1877f2; }
+.social-card.whatsapp  .social-icon { color: #25d366; }
+.social-card.email     .social-icon { color: var(--accent); }
+
+.social-name   { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+.social-handle { font-size: 0.74rem; color: var(--muted); font-family: var(--font-mono); }
+
+/* ── Email line ────────────────────────────────────────── */
+.contact-email {
+    text-align: center;
+    margin-top: 3rem;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+.contact-email a { color: var(--primary); text-decoration: none; }
+.contact-email a:hover { text-decoration: underline; }
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+    padding: 2.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(0, 245, 255, 0.08);
+    color: var(--muted);
+    font-size: 0.83rem;
+    font-family: var(--font-mono);
+    position: relative;
+    z-index: 1;
+}
+footer .heart   { color: #ff4757; }
+footer .accent  { color: var(--primary); }
+
+/* ── Responsive Contact ────────────────────────────────── */
+@media (max-width: 900px) {
+    .social-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+}

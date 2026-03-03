@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jhamir Alexander Silva Baldera — Desarrollador Full Stack desde Motupe, Lambayeque, Perú">
+    <meta name="author"      content="Jhamir Alexander Silva Baldera">
+    <title>Jhamir Silva | Dev Portfolio</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/education.css">
+    <link rel="stylesheet" href="css/certifications.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-logo">&lt;JS/&gt;</div>
+        <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+        <div class="preloader-text">cargando portfolio...</div>
+    </div>
+
+    <button id="back-to-top" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="cursor"          id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">jhamir<span>.dev</span></a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#experience">Experiencia</a></li>
+            <li><a href="#education">Educación</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-content">
+
+            <div class="hero-text">
+                <p class="hero-greeting">&lt; hola_mundo! /&gt;</p>
+                <h1 class="hero-name">
+                    Jhamir<br>
+                    <span class="highlight glitch">Silva</span>
+                </h1>
+                <p class="hero-role">
+                    Soy <span class="typed-text" id="typed"></span><span class="cursor-blink">|</span>
+                </p>
+                <p class="hero-bio">
+                    Desarrollador Full Stack de <strong style="color:var(--primary)">Motupe, Lambayeque</strong>.
+                    21 años, +50 clientes atendidos, soluciones reales con código limpio.
+                    Stack versátil: PHP, TypeScript, Python, Java, Go.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-code"></i> Ver Proyectos
+                    </a>
+                    <a href="#contact" class="btn-outline">
+                        <i class="fas fa-paper-plane"></i> Contactar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Avatar — ring spins, photo DOES NOT rotate -->
+            <div class="hero-visual">
+                <div class="float-card">&lt;dev /&gt;</div>
+                <div class="float-card">{ clients: 50+ }</div>
+                <div class="float-card">git push origin main</div>
+
+                <div class="avatar-container">
+                    <!-- Ring only — spins independently -->
+                    <div class="avatar-spin-ring"></div>
+                    <!-- Photo wrapper — sibling, does NOT spin -->
+                    <div class="avatar-photo-wrap">
+                        <img
+                            class="avatar-img"
+                            src="https://avatars.githubusercontent.com/u/172061765?v=4"
+                            alt="Jhamir Alexander Silva Baldera"
+                        >
+                    </div>
+                    <!-- Badge — sibling, does NOT spin -->
+                    <div class="avatar-badge">
+                        <i class="fas fa-graduation-cap"></i> Décimo Ciclo
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="33">0</div>
+                    <div class="stat-label">Repositorios</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Clientes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">Lenguajes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Pasión</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+
+                <div class="reveal">
+                    <p class="section-tag">// about_me.js</p>
+                    <h2 class="section-title">Quién soy</h2>
+                    <div class="section-line"></div>
+
+                    <div class="about-text">
+                        <p>
+                            Soy <strong>Jhamir Alexander Silva Baldera</strong>, tengo <strong>21 años</strong>
+                            y estudio Ingeniería de Sistemas e Informática en la
+                            <strong>Universidad Señor de Sipán</strong>, actualmente en mi <strong>décimo ciclo</strong>.
+                            Crecí en <strong>Motupe, Lambayeque</strong>, tierra que me enseñó que el esfuerzo
+                            es la única ruta real al éxito.
+                        </p>
+                        <p>
+                            Cuento con experiencia como <strong>Freelance Full Stack Developer</strong> habiendo
+                            trabajado con <strong>+50 clientes corporativos</strong> en soluciones web, consultoría
+                            de transformación digital y desarrollo de aplicaciones personalizadas para PYMES.
+                        </p>
+                        <div class="quote">
+                            "I turn coffee into code" — y cada proyecto es una oportunidad de dejar huella.
+                        </div>
+                        <p>
+                            Fuera del código me encuentras con música en los oídos, en un videojuego,
+                            disfrutando buen cine o entrenando en la piscina.
+                        </p>
+                    </div>
+
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-location-dot"></i></span>
+                            <span class="info-value">Motupe, Lambayeque</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-graduation-cap"></i></span>
+                            <span class="info-value">Ing. de Sistemas — USS</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-cake-candles"></i></span>
+                            <span class="info-value">21 años</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-language"></i></span>
+                            <span class="info-value">Español · Inglés Intermedio</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-envelope"></i></span>
+                            <span class="info-value">jhamirsilva@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-circle-check"></i></span>
+                            <span class="info-value">Disponible para proyectos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <i class="fas fa-headphones-simple interest-icon"></i>
+                            <div class="interest-name">Música</div>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-gamepad interest-icon"></i>
+                            <div class="interest-name">Videojuegos</div>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-clapperboard interest-icon"></i>
+                            <div class="interest-name">Cine</div>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-person-swimming interest-icon"></i>
+                            <div class="interest-name">Natación</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <div class="skills-header reveal">
+                <p class="section-tag">// tech_stack.json</p>
+                <h2 class="section-title">Mis Habilidades</h2>
+                <div class="section-line centered"></div>
+            </div>
+
+            <div class="skills-categories">
+
+                <div class="skill-category reveal">
+                    <i class="fas fa-terminal skill-cat-icon"></i>
+                    <div class="skill-cat-title">Lenguajes</div>
+                    <div class="skill-icons">
+                        <div class="skill-icon-item">
+                            <i class="devicon-php-plain colored"></i>
+                            <span class="skill-icon-label">PHP</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-python-plain colored"></i>
+                            <span class="skill-icon-label">Python</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-typescript-plain colored"></i>
+                            <span class="skill-icon-label">TypeScript</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-javascript-plain colored"></i>
+                            <span class="skill-icon-label">JavaScript</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-java-plain colored"></i>
+                            <span class="skill-icon-label">Java</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-go-plain colored"></i>
+                            <span class="skill-icon-label">Go</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-csharp-plain colored"></i>
+                            <span class="skill-icon-label">C#</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-cplusplus-plain colored"></i>
+                            <span class="skill-icon-label">C++</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-php-plain colored"></i> PHP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-python-plain colored"></i> Python</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="78%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-java-plain colored"></i> Java</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="65%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <i class="fas fa-layer-group skill-cat-icon"></i>
+                    <div class="skill-cat-title">Frontend &amp; Frameworks</div>
+                    <div class="skill-icons">
+                        <div class="skill-icon-item">
+                            <i class="devicon-react-original colored"></i>
+                            <span class="skill-icon-label">React</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-html5-plain colored"></i>
+                            <span class="skill-icon-label">HTML5</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-css3-plain colored"></i>
+                            <span class="skill-icon-label">CSS3</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-tailwindcss-plain colored"></i>
+                            <span class="skill-icon-label">Tailwind</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-laravel-plain colored"></i>
+                            <span class="skill-icon-label">Laravel</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-nodejs-plain colored"></i>
+                            <span class="skill-icon-label">Node.js</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-spring-plain colored"></i>
+                            <span class="skill-icon-label">Spring</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-laravel-plain colored"></i> Laravel</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="82%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-react-original colored"></i> React</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-html5-plain colored"></i> HTML5 / CSS3</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-tailwindcss-plain colored"></i> Tailwind</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <i class="fas fa-database skill-cat-icon"></i>
+                    <div class="skill-cat-title">Base de Datos &amp; Herramientas</div>
+                    <div class="skill-icons">
+                        <div class="skill-icon-item">
+                            <i class="devicon-mysql-plain colored"></i>
+                            <span class="skill-icon-label">MySQL</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-postgresql-plain colored"></i>
+                            <span class="skill-icon-label">PostgreSQL</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-git-plain colored"></i>
+                            <span class="skill-icon-label">Git</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-github-original colored"></i>
+                            <span class="skill-icon-label">GitHub</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-docker-plain colored"></i>
+                            <span class="skill-icon-label">Docker</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-vscode-plain colored"></i>
+                            <span class="skill-icon-label">VS Code</span>
+                        </div>
+                        <div class="skill-icon-item">
+                            <i class="devicon-intellij-plain colored"></i>
+                            <span class="skill-icon-label">IntelliJ</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-mysql-plain colored"></i> MySQL / PostgreSQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-git-plain colored"></i> Git / GitHub</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="devicon-docker-plain colored"></i> Docker</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="60%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-label">
+                                <span class="bar-name"><i class="fas fa-file-invoice"></i> SUNAT / UBL</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-tag">// mis_proyectos.git</p>
+                <h2 class="section-title">Lo que he construido</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-brain"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 2024</span>
+                    </div>
+                    <h3 class="project-name">Sistema de Análisis de Texto NLP</h3>
+                    <p class="project-desc">
+                        Sistema avanzado de procesamiento de lenguaje natural con análisis de sentimientos.
+                        Algoritmos NLP sobre MySQL para análisis textual en tiempo real.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-php-plain colored"></i> PHP &nbsp;
+                            <i class="devicon-mysql-plain colored"></i> MySQL
+                        </span>
+                        <a href="https://github.com/BrSilvinha" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-file-invoice"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 1</span>
+                    </div>
+                    <h3 class="project-name">Facturación Electrónica UBL</h3>
+                    <p class="project-desc">
+                        Sistema de facturación compatible con el estándar UBL de SUNAT Perú.
+                        Flujo completo de emisión y validación de comprobantes fiscales electrónicos.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-python-plain colored"></i> Python
+                        </span>
+                        <a href="https://github.com/BrSilvinha/facturacion_electronica_ubl" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-heart-pulse"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 2024</span>
+                    </div>
+                    <h3 class="project-name">Healthcare Management System</h3>
+                    <p class="project-desc">
+                        Sistema integral de gestión hospitalaria con módulos médicos completos.
+                        Backend en Java con Spring Boot y PostgreSQL para alta disponibilidad.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-java-plain colored"></i> Java &nbsp;
+                            <i class="devicon-spring-plain colored"></i> Spring
+                        </span>
+                        <a href="https://github.com/BrSilvinha" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-cart-shopping"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 2024</span>
+                    </div>
+                    <h3 class="project-name">E-Commerce Platform Moderna</h3>
+                    <p class="project-desc">
+                        Plataforma completa de e-commerce con gestión de inventario y checkout.
+                        Stack moderno: TypeScript, React y Node.js.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-typescript-plain colored"></i> TypeScript &nbsp;
+                            <i class="devicon-react-original colored"></i> React
+                        </span>
+                        <a href="https://github.com/BrSilvinha" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 2024</span>
+                    </div>
+                    <h3 class="project-name">Business Intelligence Dashboard</h3>
+                    <p class="project-desc">
+                        Dashboard de análisis predictivo con visualizaciones interactivas.
+                        Python con Pandas y Plotly para transformar datos en decisiones de negocio.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-python-plain colored"></i> Python &nbsp;
+                            <i class="devicon-pandas-plain colored"></i> Pandas
+                        </span>
+                        <a href="https://github.com/BrSilvinha" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-rocket"></i></div>
+                        <span class="project-stars"><i class="fas fa-star"></i> 3</span>
+                    </div>
+                    <h3 class="project-name">Sirer Project</h3>
+                    <p class="project-desc">
+                        Mi proyecto con mayor recepción en GitHub.
+                        Desarrollado en JavaScript con enfoque en funcionalidad robusta
+                        y experiencia de usuario fluida.
+                    </p>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <i class="devicon-javascript-plain colored"></i> JavaScript
+                        </span>
+                        <a href="https://github.com/BrSilvinha/sirer-project" target="_blank" class="project-link">
+                            Ver repo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="projects-footer reveal">
+                <a href="https://github.com/BrSilvinha" target="_blank" class="btn-outline">
+                    <i class="fab fa-github"></i> Ver todos los repositorios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-tag">// experiencia.json</p>
+                <h2 class="section-title">Experiencia</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="experience-grid">
+
+                <div class="exp-card reveal">
+                    <div class="exp-header">
+                        <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div>
+                            <div class="exp-title">Freelance Full Stack Developer</div>
+                            <div class="exp-subtitle">Desarrollador &amp; Consultor Técnico &middot; 2023 – Presente</div>
+                        </div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>+50 clientes corporativos con soluciones tecnológicas integrales</li>
+                        <li>Desarrollo de aplicaciones web personalizadas para PYMES</li>
+                        <li>Consultoría en transformación digital y migración tecnológica</li>
+                        <li>Soporte técnico especializado e infraestructura IT</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card reveal">
+                    <div class="exp-header">
+                        <div class="exp-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <div class="exp-title">Técnico Multidisciplinar</div>
+                            <div class="exp-subtitle">Diversos Sectores &middot; 2022 – Presente</div>
+                        </div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Liderazgo de equipos y gestión de proyectos colaborativos</li>
+                        <li>Especialización en facturación electrónica SUNAT/UBL</li>
+                        <li>Líder técnico en 5+ proyectos de desarrollo colaborativo</li>
+                        <li>Adaptación rápida a nuevas tecnologías y entornos de trabajo</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <p class="section-tag">// educacion.md</p>
+                <h2 class="section-title">Mi Formación</h2>
+                <div class="section-line centered"></div>
+            </div>
+
+            <div class="education-timeline">
+
+                <div class="edu-item reveal">
+                    <div class="edu-dot"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-content">
+                        <div class="edu-period">2020 &rarr; Actualidad</div>
+                        <h3 class="edu-title">Ingeniería de Sistemas e Informática</h3>
+                        <div class="edu-institution">Universidad Señor de Sipán &middot; Chiclayo, Lambayeque</div>
+                        <span class="edu-badge">Décimo Ciclo &middot; En curso</span>
+                    </div>
+                </div>
+
+                <div class="edu-item reveal">
+                    <div class="edu-dot"><i class="fas fa-school"></i></div>
+                    <div class="edu-content">
+                        <div class="edu-period">Educación Secundaria</div>
+                        <h3 class="edu-title">I.E. San Agustín — Mención Honorífica</h3>
+                        <div class="edu-institution">Motupe, Lambayeque</div>
+                        <span class="edu-badge">Medallista en Olimpiadas de Matemáticas &middot; Presidente de Centro de Estudio</span>
+                    </div>
+                </div>
+
+                <div class="edu-item reveal">
+                    <div class="edu-dot"><i class="fas fa-laptop-code"></i></div>
+                    <div class="edu-content">
+                        <div class="edu-period">2024 &rarr; Presente</div>
+                        <h3 class="edu-title">Desarrollo Full Stack</h3>
+                        <div class="edu-institution">Proyectos propios &amp; Autoaprendizaje continuo</div>
+                        <span class="edu-badge">PHP &middot; Python &middot; TypeScript &middot; Go &middot; Java &middot; C#</span>
+                    </div>
+                </div>
+
+                <div class="edu-item reveal">
+                    <div class="edu-dot"><i class="fab fa-github"></i></div>
+                    <div class="edu-content">
+                        <div class="edu-period">Logros en GitHub</div>
+                        <h3 class="edu-title">Pull Shark &times;2 &middot; Quickdraw</h3>
+                        <div class="edu-institution">Achievements oficiales &middot; 33 repositorios públicos</div>
+                        <span class="edu-badge">Líder técnico en 5+ proyectos colaborativos</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <p class="section-tag">// certificaciones.json</p>
+                <h2 class="section-title">Certificaciones</h2>
+                <div class="section-line centered"></div>
+            </div>
+
+            <div class="certs-grid">
+
+                <div class="cert-card reveal">
+                    <div class="cert-logo">
+                        <i class="devicon-google-plain colored"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Google Cloud Platform</h3>
+                        <p>Google &amp; Inspiring Study Conference — Capacitación especializada en herramientas de Google para desarrollo y productividad.</p>
+                        <span class="cert-tag">Cloud &middot; Productivity Tools</span>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal">
+                    <div class="cert-logo">
+                        <i class="fas fa-award" style="color: var(--accent); font-size: 1.6rem;"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h3>III Congreso Internacional de Ingeniería</h3>
+                        <p>Colegio de Ingenieros del Perú — Metodologías ágiles, DevOps y arquitecturas cloud-native para industria 4.0.</p>
+                        <span class="cert-tag">DevOps &middot; Agile &middot; Cloud Native</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-header reveal">
+                <p class="section-tag">// contacto.json</p>
+                <h2 class="section-title">Hablemos</h2>
+                <div class="section-line centered"></div>
+                <p class="contact-intro">
+                    ¿Tienes un proyecto en mente o quieres colaborar?
+                    Disponible para freelance, prácticas profesionales
+                    o simplemente charlar sobre tecnología.
+                </p>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://github.com/BrSilvinha" target="_blank" class="social-card github reveal">
+                    <i class="fab fa-github social-icon"></i>
+                    <div class="social-name">GitHub</div>
+                    <div class="social-handle">@BrSilvinha</div>
+                </a>
+
+                <a href="mailto:jhamirsilva@gmail.com" class="social-card email reveal">
+                    <i class="fas fa-envelope social-icon"></i>
+                    <div class="social-name">Email</div>
+                    <div class="social-handle">jhamirsilva@gmail.com</div>
+                </a>
+
+                <a href="https://www.instagram.com/brasuca_16/" target="_blank" class="social-card instagram reveal">
+                    <i class="fab fa-instagram social-icon"></i>
+                    <div class="social-name">Instagram</div>
+                    <div class="social-handle">@brasuca_16</div>
+                </a>
+
+                <a href="https://www.facebook.com/jhamiralexander.silvabaldera.7" target="_blank" class="social-card facebook reveal">
+                    <i class="fab fa-facebook social-icon"></i>
+                    <div class="social-name">Facebook</div>
+                    <div class="social-handle">Jhamir Alexander</div>
+                </a>
+
+                <a href="https://wa.me/51982566142" target="_blank" class="social-card whatsapp reveal">
+                    <i class="fab fa-whatsapp social-icon"></i>
+                    <div class="social-name">WhatsApp</div>
+                    <div class="social-handle">+51 982 566 142</div>
+                </a>
+            </div>
+
+            <div class="contact-email reveal">
+                Escríbeme a
+                <a href="mailto:jhamirsilva@gmail.com">jhamirsilva@gmail.com</a>
+                &nbsp;&middot;&nbsp; Motupe, Lambayeque, Perú
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            Diseñado &amp; construido con <span class="heart">&#9829;</span> por
+            <span class="accent">Jhamir Alexander Silva Baldera</span>
+            &nbsp;&middot;&nbsp; Motupe, Lambayeque
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">
+            "I turn coffee into code" &nbsp;&middot;&nbsp; 2025
+        </p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

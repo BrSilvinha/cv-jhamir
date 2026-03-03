@@ -1,0 +1,150 @@
+/* ============================================================
+   SKILLS — Tech stack with devicons
+   ============================================================ */
+#skills {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 245, 255, 0.02), transparent);
+}
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* ── Skill Categories Grid ─────────────────────────────── */
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+}
+.skill-category {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+}
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.skill-category:hover {
+    border-color: rgba(0, 245, 255, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 245, 255, 0.1);
+}
+.skill-category:hover::before { opacity: 1; }
+
+.skill-cat-icon {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+.skill-category:nth-child(2) .skill-cat-icon { color: var(--secondary); }
+.skill-category:nth-child(3) .skill-cat-icon { color: var(--accent); }
+
+.skill-cat-title {
+    font-size: 0.82rem;
+    color: var(--primary);
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+}
+.skill-category:nth-child(2) .skill-cat-title { color: var(--secondary); }
+.skill-category:nth-child(3) .skill-cat-title { color: var(--accent); }
+
+/* ── Skill Icon Grid (devicons) ────────────────────────── */
+.skill-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+.skill-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.2s;
+    min-width: 54px;
+    cursor: default;
+}
+.skill-icon-item:hover {
+    background: rgba(0, 245, 255, 0.06);
+    border-color: rgba(0, 245, 255, 0.2);
+    transform: translateY(-3px);
+}
+.skill-icon-item i {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+.skill-icon-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ── Skill Bars ────────────────────────────────────────── */
+.skill-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.skill-bar-item { width: 100%; }
+.skill-bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.74rem;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    gap: 0.4rem;
+}
+.skill-bar-label .bar-name {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.skill-bar-label i { font-size: 0.9rem; }
+.skill-bar-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.skill-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    width: 0;
+    transition: width 1.2s var(--ease-smooth);
+}
+.skill-category:nth-child(2) .skill-bar-fill {
+    background: linear-gradient(90deg, var(--secondary), #e040fb);
+}
+.skill-category:nth-child(3) .skill-bar-fill {
+    background: linear-gradient(90deg, var(--accent), #ffb347);
+}
+
+/* ── Responsive Skills ─────────────────────────────────── */
+@media (max-width: 1024px) {
+    .skills-categories { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .skills-categories { grid-template-columns: 1fr; }
+}

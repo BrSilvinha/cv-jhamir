@@ -1,0 +1,282 @@
+/* ============================================================
+   HERO — Profile section, avatar, stats bar
+   ============================================================ */
+
+/* ── Hero Layout ───────────────────────────────────────── */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 2rem 5rem;
+}
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0, 245, 255, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 30% 60%, rgba(184, 0, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+.hero-text,
+.hero-visual { position: relative; z-index: 1; }
+
+/* ── Hero Text ─────────────────────────────────────────── */
+.hero-greeting {
+    font-family: var(--font-mono);
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+.hero-name {
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.4s forwards;
+}
+.hero-name .highlight {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-role {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    min-height: 2em;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.6s forwards;
+}
+.typed-text    { color: var(--accent); font-weight: 700; }
+.cursor-blink  { color: var(--primary); animation: blink 1s infinite; }
+
+.hero-bio {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.8s forwards;
+}
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 1s forwards;
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+.btn-primary {
+    padding: 0.85rem 2.2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    font-weight: 800;
+    font-size: 0.88rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 245, 255, 0.45);
+}
+.btn-outline {
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.88rem;
+    border: 1.5px solid var(--primary);
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-outline:hover {
+    background: rgba(0, 245, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 245, 255, 0.2);
+}
+
+/* ── Avatar — ring spins, photo stays still ────────────── */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+
+/* Outer container — does NOT rotate, provides relative context */
+.avatar-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+/* The ring that spins — absolutely positioned sibling of the photo.
+   A CSS mask makes the center transparent so NOTHING is painted there —
+   no dark background color, no square, just the natural page background. */
+.avatar-spin-ring {
+    position: absolute;
+    inset: -3px;          /* extend slightly so the ring sits outside the photo */
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+    animation: spin 5s linear infinite;
+
+    /* Only paint the outermost ring; center is fully transparent */
+    -webkit-mask: radial-gradient(circle, transparent 84%, black 86%);
+            mask: radial-gradient(circle, transparent 84%, black 86%);
+}
+
+/* Photo wrapper — sibling of the ring, does NOT rotate */
+.avatar-photo-wrap {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+}
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badge — also a sibling, also does NOT rotate */
+.avatar-badge {
+    position: absolute;
+    bottom: 8px;
+    right: -4px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    z-index: 2;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 15px rgba(0, 245, 255, 0.4);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ── Floating Cards ────────────────────────────────────── */
+.float-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 245, 255, 0.18);
+    border-radius: 10px;
+    padding: 0.55rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--primary);
+    animation: float 3.5s ease-in-out infinite;
+    z-index: 2;
+}
+.float-card:nth-child(1) { top: -10px; left: -70px; animation-delay: 0s; }
+.float-card:nth-child(2) { bottom: 40px; left: -90px; animation-delay: 1.2s; color: var(--secondary); border-color: rgba(184, 0, 255, 0.2); }
+.float-card:nth-child(3) { top: 40px; right: -70px; animation-delay: 0.6s; color: var(--accent); border-color: rgba(255, 107, 53, 0.2); }
+
+/* ── Scroll Indicator ──────────────────────────────────── */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+}
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    animation: scrollAnim 1.8s ease infinite;
+}
+
+/* ── Stats Bar ─────────────────────────────────────────── */
+.stats-section {
+    padding: 3.5rem 0;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.03), rgba(184, 0, 255, 0.03));
+    border-top: 1px solid rgba(0, 245, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.08);
+    position: relative;
+    z-index: 1;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+}
+.stat-item { padding: 1.2rem; }
+.stat-number {
+    font-size: 2.6rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.stat-label {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 0.3rem;
+}
+
+/* ── Responsive Hero ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    .hero-visual  { order: -1; }
+    .avatar-container { width: 230px; height: 230px; }
+    .hero-cta     { justify-content: center; }
+    .hero-bio     { margin: 0 auto 2rem; }
+    .float-card   { display: none; }
+    .stats-grid   { grid-template-columns: repeat(2, 1fr); }
+}

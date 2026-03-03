@@ -1,0 +1,162 @@
+/* ============================================================
+   CERTIFICATIONS & EXPERIENCE
+   ============================================================ */
+
+/* ── Experience Section ────────────────────────────────── */
+#experience {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(180deg, transparent, rgba(255, 107, 53, 0.02), transparent);
+}
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+}
+.exp-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+}
+.exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+}
+.exp-card:hover {
+    border-color: rgba(255, 107, 53, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.1);
+}
+.exp-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.exp-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #000;
+}
+.exp-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.exp-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+.exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+.exp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+.exp-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 0.45rem;
+}
+
+/* ── Certifications Section ────────────────────────────── */
+#certifications {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 245, 255, 0.02), transparent);
+}
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cert-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1.8rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+}
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.cert-card:hover::before { opacity: 1; }
+.cert-card:hover {
+    border-color: rgba(0, 245, 255, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 245, 255, 0.08);
+}
+.cert-logo {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 245, 255, 0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.cert-info h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+.cert-info p {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+.cert-tag {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    background: rgba(0, 245, 255, 0.08);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .experience-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+}

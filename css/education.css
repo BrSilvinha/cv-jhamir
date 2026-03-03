@@ -1,0 +1,82 @@
+/* ============================================================
+   EDUCATION — Timeline
+   ============================================================ */
+#education {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(180deg, transparent, rgba(184, 0, 255, 0.02), transparent);
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
+}
+
+.edu-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.8rem;
+    position: relative;
+}
+
+.edu-dot {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #000;
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+    z-index: 1;
+}
+
+.edu-content {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    flex: 1;
+    transition: all 0.3s;
+}
+.edu-content:hover {
+    border-color: rgba(0, 245, 255, 0.25);
+    transform: translateX(6px);
+}
+
+.edu-period {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+}
+.edu-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+.edu-institution {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 0.6rem;
+}
+.edu-badge {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    background: rgba(0, 245, 255, 0.08);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    border-radius: 20px;
+    font-size: 0.73rem;
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
