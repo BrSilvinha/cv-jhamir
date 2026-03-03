@@ -125,6 +125,29 @@
     box-shadow: 0 12px 35px rgba(0, 245, 255, 0.2);
 }
 
+/* ── Download CV Button ────────────────────────────────── */
+.btn-cv {
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.88rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-cv:hover {
+    background: rgba(255, 107, 53, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.3);
+}
+
 /* ── Avatar — ring spins, photo stays still ────────────── */
 .hero-visual {
     display: flex;

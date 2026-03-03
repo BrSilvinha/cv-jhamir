@@ -151,6 +151,39 @@ body::after {
     box-shadow: 0 10px 30px rgba(0, 245, 255, 0.6);
 }
 
+/* ── CV Float Button ───────────────────────────────────── */
+#cv-float-btn {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.1rem;
+    background: linear-gradient(135deg, var(--accent), #e0440c);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 50px;
+    z-index: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s var(--ease-bounce);
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.45);
+    white-space: nowrap;
+}
+#cv-float-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+#cv-float-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.65);
+}
+
 /* ── Section Commons ───────────────────────────────────── */
 section { position: relative; z-index: 1; }
 

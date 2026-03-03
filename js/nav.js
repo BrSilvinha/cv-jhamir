@@ -8,6 +8,7 @@ export function initNav() {
     const links    = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section[id]');
     const btt      = document.getElementById('back-to-top');
+    const cvBtn    = document.getElementById('cv-float-btn');
 
     /* Hamburger toggle */
     if (burger) {
@@ -33,9 +34,8 @@ export function initNav() {
                 : 'rgba(5,5,16,0.75)';
         }
 
-        if (btt) {
-            btt.classList.toggle('visible', sy > 400);
-        }
+        if (btt)   btt.classList.toggle('visible', sy > 400);
+        if (cvBtn) cvBtn.classList.toggle('visible', sy > 400);
 
         /* Active section highlight */
         let current = '';
