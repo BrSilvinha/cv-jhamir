@@ -37,6 +37,11 @@ const COMMANDS = {
     exit:  '__EXIT__',
 };
 
+/* Sanitize user input to prevent XSS */
+function esc(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 export function initEasterEgg() {
     let seq = [];
     const overlay = document.getElementById('terminal-overlay');
@@ -44,14 +49,18 @@ export function initEasterEgg() {
     const input   = document.getElementById('terminal-input');
     if (!overlay || !output || !input) return;
 
-    /* Listen for Konami sequence */
+    /* Listen for Konami sequence + Escape to close */
     document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('visible')) {
+            closeTerminal();
+            return;
+        }
         seq.push(e.key);
         if (seq.length > KONAMI.length) seq.shift();
         if (seq.join(',') === KONAMI.join(',')) openTerminal();
     });
 
-    /* Close button */
+    /* Close button + click outside */
     document.getElementById('terminal-close')?.addEventListener('click', closeTerminal);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeTerminal(); });
 
@@ -61,14 +70,16 @@ export function initEasterEgg() {
         const cmd = input.value.trim().toLowerCase();
         input.value = '';
         if (!cmd) return;
-        appendLine(`<span class="t-prompt">jhamir@portfolio:~$</span> ${cmd}`);
+        /* Sanitize user input before inserting into DOM */
+        appendLine(`<span class="t-prompt">jhamir@portfolio:~$</span> ${esc(cmd)}`);
         runCommand(cmd);
     });
 
     function runCommand(cmd) {
         const result = COMMANDS[cmd];
         if (!result) {
-            appendLine(`<span class="t-err">command not found: ${cmd}. Type <span class="t-cmd">help</span> for options.</span>`);
+            /* Sanitize cmd in error message too */
+            appendLine(`<span class="t-err">command not found: <b>${esc(cmd)}</b>. Type <span class="t-cmd">help</span>.</span>`);
         } else if (result === '__CLEAR__') {
             output.innerHTML = '';
         } else if (result === '__EXIT__') {

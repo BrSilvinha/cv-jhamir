@@ -10,7 +10,7 @@ export function initTheme() {
     applyTheme(saved);
 
     btn?.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        const next = root.getAttribute('data-theme') === 'green' ? 'dark' : 'green';
         applyTheme(next);
         localStorage.setItem('theme', next);
     });
@@ -18,6 +18,7 @@ export function initTheme() {
     function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
         if (!icon) return;
-        icon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        icon.className = theme === 'green' ? 'fas fa-terminal' : 'fas fa-moon';
+        btn.title = theme === 'green' ? 'Modo oscuro' : 'Modo hacker';
     }
 }
