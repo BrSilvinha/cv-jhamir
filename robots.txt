@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cv-jhamir.vercel.app/sitemap.xml

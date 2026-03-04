@@ -103,6 +103,45 @@
     font-weight: 600;
 }
 
+/* ── GitHub Contribution Graph ─────────────────────────── */
+.github-graph {
+    margin-top: 3.5rem;
+}
+.github-graph .section-tag {
+    margin-bottom: 1rem;
+}
+.github-graph-inner {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem 2rem 1.2rem;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+.github-graph-inner:hover {
+    border-color: rgba(0, 245, 255, 0.25);
+}
+.github-graph-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    margin-bottom: 1.2rem;
+}
+.github-graph-header i { color: var(--primary); font-size: 1rem; }
+.github-graph-header a { color: var(--primary); text-decoration: none; }
+.github-graph-header a:hover { text-decoration: underline; }
+.github-contrib-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    opacity: 0.85;
+    filter: saturate(1.2);
+}
+
 /* ── Responsive About ──────────────────────────────────── */
 @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; }
@@ -110,4 +149,5 @@
 @media (max-width: 520px) {
     .interests-grid  { grid-template-columns: repeat(2, 1fr); }
     .about-info      { grid-template-columns: 1fr; }
+    .github-graph-inner { padding: 1rem 1rem 0.8rem; }
 }
