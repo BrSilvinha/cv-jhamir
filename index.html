@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jhamir Alexander Silva Baldera — Desarrollador Full Stack desde Motupe, Lambayeque, Perú">
+    <meta name="description" content="Jhamir Alexander Silva Baldera — Desarrollador Full Stack desde Motupe, Lambayeque, Perú. PHP, TypeScript, Python, Java, Go. +50 clientes. Soluciones reales con código limpio.">
     <meta name="author"      content="Jhamir Alexander Silva Baldera">
+    <meta name="keywords"    content="Jhamir Silva, desarrollador full stack, Peru, Laravel, React, PHP, Python, TypeScript, portfolio, freelance, Motupe, Lambayeque">
+    <meta name="robots"      content="index, follow">
+    <meta name="theme-color" content="#050510">
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://cv-jhamir.vercel.app">
+    <meta property="og:title"       content="Jhamir Silva | Dev Portfolio">
+    <meta property="og:description" content="Desarrollador Full Stack · PHP · TypeScript · Python · Go · +50 clientes · Motupe, Perú">
+    <meta property="og:image"       content="https://avatars.githubusercontent.com/u/172061765?v=4">
+    <meta property="og:locale"      content="es_PE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Jhamir Silva | Dev Portfolio">
+    <meta name="twitter:description" content="Desarrollador Full Stack · PHP · TypeScript · Python · Go · +50 clientes · Motupe, Perú">
+    <meta name="twitter:image"       content="https://avatars.githubusercontent.com/u/172061765?v=4">
+
     <title>Jhamir Silva | Dev Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -37,12 +55,12 @@
         <div class="preloader-text">cargando portfolio...</div>
     </div>
 
-    <button id="back-to-top" title="Volver arriba">
-        <i class="fas fa-chevron-up"></i>
+    <button id="back-to-top" title="Volver arriba" aria-label="Volver al inicio">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <a id="cv-float-btn" href="Jhamir_Silva.pdf" download="Jhamir_Silva.pdf" title="Descargar CV">
-        <i class="fas fa-file-arrow-down"></i>
+    <a id="cv-float-btn" href="Jhamir_Silva.pdf" download="Jhamir_Silva.pdf" title="Descargar CV" aria-label="Descargar CV en PDF">
+        <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
         <span>CV</span>
     </a>
 
@@ -61,7 +79,10 @@
             <li><a href="#education">Educación</a></li>
             <li><a href="#contact">Contacto</a></li>
         </ul>
-        <div class="hamburger" id="hamburger">
+        <button id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <div class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" role="button" tabindex="0">
             <span></span><span></span><span></span>
         </div>
     </nav>
@@ -764,6 +785,39 @@
                 </p>
             </div>
 
+            <!-- Formulario — reemplaza YOUR_FORM_ID con el ID de formspree.io -->
+            <form class="contact-form reveal" id="contact-form"
+                  action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cf-name">Nombre</label>
+                        <input type="text" id="cf-name" name="name"
+                               placeholder="Tu nombre completo" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email</label>
+                        <input type="email" id="cf-email" name="email"
+                               placeholder="tu@email.com" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cf-subject">Asunto</label>
+                    <input type="text" id="cf-subject" name="subject"
+                           placeholder="¿De qué quieres hablar?">
+                </div>
+                <div class="form-group">
+                    <label for="cf-message">Mensaje</label>
+                    <textarea id="cf-message" name="message" rows="5"
+                              placeholder="Cuéntame tu idea o proyecto..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje
+                </button>
+                <p class="form-success" id="form-success" aria-live="polite">
+                    <i class="fas fa-circle-check"></i> ¡Mensaje enviado! Te respondo pronto.
+                </p>
+            </form>
+
             <div class="social-grid">
                 <a href="https://github.com/BrSilvinha" target="_blank" class="social-card github reveal">
                     <i class="fab fa-github social-icon"></i>
@@ -815,6 +869,25 @@
             "I turn coffee into code" &nbsp;&middot;&nbsp; 2025
         </p>
     </footer>
+
+    <!-- EASTER EGG TERMINAL (Konami: ↑↑↓↓←→←→BA) -->
+    <div id="terminal-overlay" role="dialog" aria-modal="true" aria-label="Terminal secreta">
+        <div id="terminal-window">
+            <div id="terminal-titlebar">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+                <span id="terminal-title">jhamir@portfolio:~</span>
+                <button id="terminal-close" aria-label="Cerrar terminal">&times;</button>
+            </div>
+            <div id="terminal-output"></div>
+            <div id="terminal-inputline">
+                <span class="t-prompt">jhamir@portfolio:~$</span>
+                <input id="terminal-input" type="text" autocomplete="off"
+                       spellcheck="false" placeholder="escribe un comando…" aria-label="Comando de terminal">
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="js/main.js"></script>
 </body>

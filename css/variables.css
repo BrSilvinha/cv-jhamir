@@ -2,7 +2,7 @@
    VARIABLES — Design tokens for the entire portfolio
    ============================================================ */
 :root {
-    /* Colors */
+    /* Colors — Dark (default) */
     --bg:           #050510;
     --bg2:          #0a0a1f;
     --card:         rgba(255, 255, 255, 0.03);
@@ -25,3 +25,26 @@
     --ease-bounce:  cubic-bezier(.175, .885, .32, 1.275);
     --ease-smooth:  cubic-bezier(.4, 0, .2, 1);
 }
+
+/* ── Light Mode ────────────────────────────────────────── */
+[data-theme="light"] {
+    --bg:           #f0f2ff;
+    --bg2:          #e2e6ff;
+    --card:         rgba(0, 0, 60, 0.04);
+    --card-border:  rgba(0, 100, 200, 0.18);
+    --primary:      #0066cc;
+    --secondary:    #8800cc;
+    --accent:       #d04500;
+    --text:         #0d0d2b;
+    --muted:        #4a4a7a;
+}
+[data-theme="light"] body {
+    background: var(--bg);
+    color: var(--text);
+}
+[data-theme="light"] nav {
+    background: rgba(240, 242, 255, 0.92) !important;
+    border-bottom-color: rgba(0, 100, 200, 0.12);
+}
+[data-theme="light"] #particles-canvas { opacity: 0.3; }
+[data-theme="light"] body::after { opacity: 0.15; }

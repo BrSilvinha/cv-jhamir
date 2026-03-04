@@ -54,6 +54,27 @@ nav {
 .nav-links a.active       { color: var(--primary); }
 .nav-links a.active::after { width: 100%; }
 
+/* Theme Toggle */
+#theme-toggle {
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+#theme-toggle:hover {
+    background: rgba(0, 245, 255, 0.1);
+    transform: rotate(20deg);
+}
+
 /* Hamburger */
 .hamburger {
     display: none;

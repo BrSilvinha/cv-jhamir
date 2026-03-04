@@ -151,6 +151,13 @@ body::after {
     box-shadow: 0 10px 30px rgba(0, 245, 255, 0.6);
 }
 
+/* ── Keyboard Focus ────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 /* ── CV Float Button ───────────────────────────────────── */
 #cv-float-btn {
     position: fixed;
@@ -183,6 +190,102 @@ body::after {
     transform: translateY(-4px) scale(1.06);
     box-shadow: 0 10px 30px rgba(255, 107, 53, 0.65);
 }
+
+/* ── Easter Egg Terminal ───────────────────────────────── */
+#terminal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+#terminal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#terminal-window {
+    width: min(680px, 92vw);
+    background: #0a0a1a;
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 245, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+#terminal-titlebar {
+    background: #111125;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+}
+.t-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.t-red    { background: #ff5f57; }
+.t-yellow { background: #febc2e; }
+.t-green  { background: #28c840; }
+#terminal-title {
+    flex: 1;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+#terminal-close {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0.2rem;
+}
+#terminal-close:hover { color: var(--text); }
+#terminal-output {
+    padding: 1rem 1.2rem;
+    min-height: 200px;
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: #c8d4e8;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+#terminal-output p { margin: 0; }
+#terminal-inputline {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    border-top: 1px solid rgba(0, 245, 255, 0.08);
+    background: #080816;
+}
+#terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    caret-color: var(--primary);
+}
+.t-prompt   { color: var(--primary); white-space: nowrap; }
+.t-cmd      { color: var(--accent); }
+.t-highlight{ color: var(--primary); font-weight: 700; }
+.t-err      { color: #ff6b6b; }
 
 /* ── Section Commons ───────────────────────────────────── */
 section { position: relative; z-index: 1; }

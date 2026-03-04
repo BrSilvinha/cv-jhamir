@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Página no encontrada | Jhamir Silva</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050510; --primary: #00f5ff;
+            --secondary: #b800ff; --accent: #ff6b35;
+            --text: #e0e0ff; --muted: #6b6b8a;
+            --font-mono: 'Fira Code', monospace;
+            --font-sans: 'Space Grotesk', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 30% 40%, rgba(0,245,255,.06) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 70% 60%, rgba(184,0,255,.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .container { position: relative; z-index: 1; max-width: 560px; }
+        .code {
+            font-family: var(--font-mono);
+            font-size: clamp(5rem, 18vw, 9rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .tag {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.2rem;
+        }
+        h1 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000;
+            font-weight: 800;
+            font-size: 0.88rem;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,245,255,.45);
+        }
+        .glitch {
+            animation: glitch 3s infinite;
+        }
+        @keyframes glitch {
+            0%,90%,100% { text-shadow: none; }
+            92% { text-shadow: -3px 0 var(--accent); }
+            94% { text-shadow: 3px 0 var(--secondary); }
+            96% { text-shadow: -3px 0 var(--primary); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tag">// error.js</div>
+        <div class="code glitch">404</div>
+        <h1>Página no encontrada</h1>
+        <p>
+            Parece que esta ruta no existe en el repositorio.<br>
+            Quizás fue eliminada, movida o nunca existió.
+        </p>
+        <a href="/" class="btn">
+            <i class="fas fa-house"></i> Volver al inicio
+        </a>
+    </div>
+</body>
+</html>
